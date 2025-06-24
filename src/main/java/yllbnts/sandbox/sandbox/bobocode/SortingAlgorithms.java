@@ -9,7 +9,8 @@ public class SortingAlgorithms {
     public static void main(String[] args) {
         int[] arr = {5, 4, 12, 6, 11};
         System.out.println(Arrays.toString(arr));
-        insertionSort(arr);
+//        insertionSort(arr);
+        bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -22,6 +23,25 @@ public class SortingAlgorithms {
                 j--;
             }
             arr[j + 1] = current;
+        }
+    }
+
+    private static void bubbleSort(int[] arr){
+        int length = arr.length;
+        boolean swapped;
+        for (int i = 0; i < length; i++) {
+            swapped = false;
+            for (int j = 0; j < length - i -1 ; j++) {
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                    swapped= true;
+                }
+            }
+
+            if(swapped == false)
+                break;
         }
     }
 }
